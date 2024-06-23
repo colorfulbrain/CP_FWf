@@ -1,12 +1,6 @@
 #!/bin/sh
-#
-# Script name: bb_struct_init
-#
+# FOLLOW UKBB pipeline
 # Description: Main script with all the processing for T1
-
-# omit： bbgetb0，bbchoose_best_b0,fslmerge_APPA, compared to UKbiobank script
-#. $BB_BIN_DIR/bb_pipeline_tools/bb_set_header 
-# input subjid
 
 subjDIR=$2
 subjTAR=$3
@@ -14,12 +8,11 @@ template='/home/binyin/local4t/research/codes/RJNBscripts/RJNBpreprocCode/templa
 tool='/home/binyin/local4t/research/codes/RJNBscripts/RJNBpreprocCode/tools/'
 parameter='/home/binyin/local4t/research/codes/RJNBscripts/RJNBpreprocCode/hyperparameter/'
 
-
 mkdir -p $subjTAR/$1/T1
 cd $subjTAR/$1/T1  # into individual T1 folder
 cp $subjDIR/$1/T1/T1_orig.nii.gz T1_orig.nii.gz
 
-#no coil grad file siemens, activate the #Alternative
+#no coil grad file for UI891, activate the #Alternative
 #Alternative
 cp $subjTAR/$1/T1/T1_orig.nii.gz T1_orig_ud.nii.gz
 
@@ -136,16 +129,3 @@ ln -s ../T1_unbiased_brain.nii.gz T1_first/T1_unbiased_brain.nii.gz
 ${FSLDIR}/bin/run_first_all -i T1_first/T1_unbiased_brain -b -o T1_first/T1_first
 echo T1fisrtfinished
 
-#Run Siena
-$tool/bb_sienax `pwd`/..
-echo Sienafinished
-
-#Run VBM
-# need to PATH in bb_vbm to /Users/binyin/Downloads/RJNBpreprocCode/templates/template_GM.nii.gz
-$tool/bb_vbm `pwd`/..
-echo VBMfinished
-
-#Generate noise-related QC metrics
-#$BB_BIN_DIR/bb_structural_pipeline/bb_QC_COG ../$1
-#$BB_BIN_DIR/bb_structural_pipeline/bb_QC_CNR_eyes ../$1
-#$BB_BIN_DIR/bb_structural_pipeline/bb_QC_CNR_corners_complete ../$1

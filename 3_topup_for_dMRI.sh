@@ -1,13 +1,8 @@
 #!/usr/bin/env bash 
-# if get fieldmap for dMRI, run bb_get_b0s (get 4D nii.gz, -n 4)
-# if more than one b0 AP/PA, run choose_bestB0 to get 3D nii.gz for AP/PA
 
-# if we have a pair of AP and PA fieldmap, run topup
 subjDIR=$2
 subjTAR=$3
 
-#subjDIR="/home/binyin/nasdata/RJ_UI890_forAD/niigz"
-#subjTAR='/home/binyin/nasdata/RJ_UI890_forAD/preproc'
 template='/home/binyin/local4t/research/codes/RJNBscripts/RJNBpreprocCode/templates'
 tool='/home/binyin/local4t/research/codes/RJNBscripts/RJNBpreprocCode/tools/'
 parameter='/home/binyin/local4t/research/codes/RJNBscripts/RJNBpreprocCode/hyperparameter/'

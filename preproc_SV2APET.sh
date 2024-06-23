@@ -1,8 +1,5 @@
 #!/bin/bash 
 
-#20210813 gtmseg all T1 by freesurfer7.1.1
-#a total of 48 cases in subjDIR
-
 subj=$1
 subjTAR=$2
 SUBJECTS_DIR=$3
@@ -33,13 +30,6 @@ mri_surf2surf --srcsubject $subj --srcsurfval $subjTAR/$subj/sv2a_bycerebelgm/rh
                       --trgsurfval $subjTAR/$subj/sv2a_bycerebelgm/reg_surf2fsaverage/rh.mgx.ctxgm.fsaverage.sm00.nii.gz \
                       --hemi rh
 
-# QC check
-#export QC='/home/binyin/local4t/research/data_wash/RJ_uMR890_forAD/QC_coreg/'
-#mkdir -p $QC
-
-#freeview -viewport z -v $SUBJECTS_DIR/$subj/mri/orig.mgz:name=orig.mgz $subjDIR/$subj/sv2a/sv2a_raw.nii.gz:name=sv2a_raw.nii.gz:reg=$subjTAR/$subj/sv2a_bycerebelgm/toT1.reg.lta:colormap=NIH:opacity=0.15 --surface $SUBJECTS_DIR/$subj/surf/lh.white:edgecolor=yellow --surface $SUBJECTS_DIR/$subj/surf/lh.white:edgecolor=yellow -slice 90 90 90 -ss $QC/$subj.z.jpg
-
-#freeview -viewport y -v $SUBJECTS_DIR/$subj/mri/orig.mgz:name=orig.mgz $subjDIR/$subj/sv2a/sv2a_raw.nii.gz:name=sv2a_raw.nii.gz:reg=$subjTAR/$subj/sv2a_bycerebelgm/toT1.reg.lta:colormap=NIH:opacity=0.15 --surface $SUBJECTS_DIR/$subj/surf/rh.white:edgecolor=yellow --surface $SUBJECTS_DIR/$subj/surf/rh.white:edgecolor=yellow -slice 90 90 90 -ss $QC/$subj.y.jpg
 
 
 

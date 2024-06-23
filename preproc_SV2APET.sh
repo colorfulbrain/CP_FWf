@@ -8,10 +8,9 @@ subjDIR=$4
 ##gtmseg, coreg and pvc
 mkdir -p $subjTAR/$subj/sv2a_bycerebelgm
 
-#gtmseg --s $subj --keep-hypo --xcerseg
-#mri_coreg --s $subj --mov $subjDIR/$subj/sv2a/sv2a_raw.nii.gz --reg $subjTAR/$subj/sv2a_bycerebelgm/toT1.reg.lta --threads 6
-
-#mri_gtmpvc --i $subjDIR/$subj/sv2a/sv2a_raw.nii.gz --reg $subjTAR/$subj/sv2a_bycerebelgm/toT1.reg.lta --o $subjTAR/$subj/sv2a_bycerebelgm --psf 4 --seg gtmseg.mgz --auto-mask 1 0.01 --mgx 0.01 --save-input --rescale 7 8 46 47 --threads 6 --merge-hypos --default-seg-merge
+gtmseg --s $subj --keep-hypo --xcerseg
+mri_coreg --s $subj --mov $subjDIR/$subj/sv2a/sv2a_raw.nii.gz --reg $subjTAR/$subj/sv2a_bycerebelgm/toT1.reg.lta --threads 6
+mri_gtmpvc --i $subjDIR/$subj/sv2a/sv2a_raw.nii.gz --reg $subjTAR/$subj/sv2a_bycerebelgm/toT1.reg.lta --o $subjTAR/$subj/sv2a_bycerebelgm --psf 4 --seg gtmseg.mgz --auto-mask 1 0.01 --mgx 0.01 --save-input --rescale 7 8 46 47 --threads 6 --merge-hypos --default-seg-merge
 
 ##vol2surface and to common space
 mkdir -p $subjTAR/$subj/sv2a_bycerebelgm/reg_surf2fsaverage

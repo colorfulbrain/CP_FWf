@@ -28,8 +28,3 @@ mri_surf2surf --srcsubject $subj --srcsurfval $subjTAR/$subj/av45_bycerebelgm/rh
                       --trgsubject fsaverage \
                       --trgsurfval $subjTAR/$subj/av45_bycerebelgm/reg_surf2fsaverage/rh.mgx.ctxgm.fsaverage.sm00.nii.gz \
                       --hemi rh
-##vol to common space
-mkdir -p $subjTAR/$subj/av45_bycerebelgm/reg_vol2fsaverage
-mri_vol2vol --mov $subjTAR/$subj/av45_bycerebelgm/mgx.subctxgm.nii.gz --reg $subjTAR/$subj/av45_bycerebelgm/aux/bbpet2anat.lta --tal --talres 2  --o $subjTAR/$subj/av45_bycerebelgm/reg_vol2fsaverage/subctxgm.mni305.2mm.sm00.nii.gz
-cd $subjTAR/$subj/av45_bycerebelgm/reg_vol2fsaverage
-mri_fwhm --smooth-only --i subctxgm.mni305.2mm.sm00.nii.gz --fwhm 5 --o subctxgm.mni305.2mm.sm05.nii.gz --mask $FREESURFER_HOME/subjects/fsaverage/mri.2mm/subcort.mask.mgz

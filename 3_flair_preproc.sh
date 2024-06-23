@@ -1,15 +1,10 @@
 #!/bin/sh
-#
-# Script name: bb_struct_init
-#
-# Description: Main script with all the processing for T1
-
-# omit： bbgetb0，bbchoose_best_b0,fslmerge_APPA, compared to UKbiobank script
-#. $BB_BIN_DIR/bb_pipeline_tools/bb_set_header 
-# input subjid
+# Description: Main script with all the processing for T2_flair
 
 subjDIR=$2
 subjTAR=$3
+
+##local files
 template='/home/binyin/local4t/research/codes/RJNBscripts/RJNBpreprocCode/templates'
 tool='/home/binyin/local4t/research/codes/RJNBscripts/RJNBpreprocCode/tools/'
 parameter='/home/binyin/local4t/research/codes/RJNBscripts/RJNBpreprocCode/hyperparameter/'
